@@ -17,7 +17,7 @@ require("./dbs/init.mongodb");
 const { checkOverload } = require("./helper/check.connect");
 checkOverload();
 //init routes
-
+app.use("/", require("./routes/index"));
 //handling error
 
 module.exports = app;

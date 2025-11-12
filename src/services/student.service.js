@@ -1,7 +1,7 @@
 const Student = require("../models/student.model");
 
 class StudentService {
-  async addNewStudent(data) {
+  static async addNewStudent(data) {
     try {
       const { studentId, name, email, age, major, score } = data;
       const existsStudent = await Student.findOne({ studentId });
@@ -29,7 +29,7 @@ class StudentService {
     }
   }
 
-  async getStudentById(id) {
+  static async getStudentById(id) {
     try {
       const student = await Student.findOne({ id });
       if (!student) {
@@ -51,7 +51,7 @@ class StudentService {
     }
   }
 
-  async getAllStudent() {
+  static async getAllStudent() {
     try {
       const students = await Student.find();
       if (students.length === 0) {
@@ -70,7 +70,7 @@ class StudentService {
     }
   }
 
-  async updateStudent(data, id) {
+  static async updateStudent(data, id) {
     try {
       const { studentId, name, email, age, major, score } = data;
       const student = await Student.findById(id);
@@ -122,7 +122,7 @@ class StudentService {
     }
   }
 
-  async deleteStudent(id) {
+  static async deleteStudent(id) {
     try {
       const student = await Student.findById(id);
       if (!student) {
@@ -146,3 +146,5 @@ class StudentService {
     }
   }
 }
+
+module.exports = StudentService;
