@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connectString = `mongodb://localhost:27017/test`;
+const connectString = process.env.MONGO_URI;
 
 class Database {
   constructor() {
